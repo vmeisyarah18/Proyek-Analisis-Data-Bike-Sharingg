@@ -25,17 +25,10 @@ df.rename(columns={'cnt': 'total_rentals'}, inplace=True)
 season_labels = {1: 'Spring', 2: 'Summer', 3: 'Fall', 4: 'Winter'}
 df['season_name'] = df['season'].map(season_labels)
 
-weather_labels = {
-    1: 'Clear',
-    2: 'Mist',
-    3: 'Light Rain',
-    4: 'Heavy Rain'
-}
+weather_labels = {1: 'Clear', 2: 'Mist', 3: 'Light Rain'}
 df['weather_name'] = df['weathersit'].map(weather_labels)
 
-# ==========================
 # SIDEBAR INTERAKTIF
-# ==========================
 st.sidebar.title("📌 Filter Interaktif")
 
 # Filter tanggal
@@ -77,9 +70,12 @@ ax1.set_title("Rata-rata Peminjaman Sepeda Berdasarkan Cuaca")
 st.pyplot(fig1)
 
 st.write(
-    "**Insight:** Cuaca cerah memiliki rata-rata peminjaman tertinggi. "
-    "Semakin buruk kondisi cuaca, jumlah peminjaman cenderung menurun."
+    "**Insight:** Rata-rata peminjaman sepeda paling tinggi terjadi pada kondisi cuaca cerah, "
+    "diikuti oleh cuaca berkabut atau mendung ringan. Sementara itu, kondisi hujan ringan "
+    "menunjukkan penurunan jumlah peminjaman yang cukup signifikan, menandakan bahwa "
+    "faktor cuaca sangat memengaruhi minat pengguna."
 )
+
 st.divider()
 
 # GRAFIK 2: PENGARUH MUSIM
@@ -95,8 +91,9 @@ ax2.set_title("Rata-rata Peminjaman Sepeda Berdasarkan Musim")
 st.pyplot(fig2)
 
 st.write(
-    "**Insight:** Musim dengan cuaca nyaman menunjukkan peminjaman lebih tinggi, "
-    "sementara musim ekstrem memiliki tingkat peminjaman lebih rendah."
+    "**Insight:** Peminjaman sepeda cenderung meningkat pada musim panas dan gugur, "
+    "sementara musim semi memiliki rata-rata peminjaman paling rendah. Hal ini menunjukkan "
+    "bahwa kondisi cuaca yang lebih hangat dan stabil mendorong aktivitas bersepeda."
 )
 st.divider()
 
